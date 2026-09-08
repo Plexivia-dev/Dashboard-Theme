@@ -1,7 +1,7 @@
 {
-  "name": "@plexivia/erp-dash-ui",
-  "version": "1.0.0",
-  "description": "Plexivia ERP Dashboard UI - reusable React components, layout, theming, and state management for admin/client dashboards",
+  "name": "@plexivia/dashboard-theme",
+  "version": "0.0.1",
+  "description": "Plexivia Dashboard UI - reusable React components, layout, theming, and state management for admin/client dashboards",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
