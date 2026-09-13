@@ -1,0 +1,235 @@
+﻿/**
+ * @plexivia/erp-dash-ui - Styles
+ *
+ * Usage in your project's main CSS:
+ *   @import "@plexivia/erp-dash-ui/styles";
+ *
+ * Or in your main.jsx/main.js:
+ *   import "@plexivia/erp-dash-ui/styles/index.css";
+ *
+ * IMPORTANT: You must also have `@import "tailwindcss"` in your own CSS,
+ * as this file only provides the design tokens and utilities - not the
+ * full Tailwind base styles.
+ */
+
+/* --- Design System Tokens & CSS Variables --- */
+:root {
+  --background: #ffffff;
+  --foreground: #09090b;
+  --card: #ffffff;
+  --card-foreground: #09090b;
+  --popover: #ffffff;
+  --popover-foreground: #09090b;
+  --primary: #0284c7;
+  --primary-foreground: #ffffff;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #18181b;
+  --muted: rgba(0, 0, 0, 0.03);
+  --muted-foreground: rgba(0, 0, 0, 0.6);
+  --accent: rgba(0, 0, 0, 0.04);
+  --accent-foreground: #09090b;
+  --destructive: #ef4444;
+  --border: rgba(0, 0, 0, 0.1);
+  --input: rgba(0, 0, 0, 0.12);
+  --ring: #0284c7;
+  --chart-1: #0284c7;
+  --chart-2: #10b981;
+  --chart-3: #f59e0b;
+  --chart-4: #6366f1;
+  --chart-5: #ec4899;
+  --radius: 0.75rem;
+
+  /* Sidebar tokens - deep navy blue */
+  --sidebar: #0b3a60;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #38bdf8;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(255, 255, 255, 0.12);
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(255, 255, 255, 0.15);
+  --sidebar-ring: #38bdf8;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* --- Dark Mode Tokens --- */
+.dark {
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --card: #1e293b;
+  --card-foreground: #f8fafc;
+  --popover: #1e293b;
+  --popover-foreground: #f8fafc;
+  --primary: #38bdf8;
+  --primary-foreground: #0f172a;
+  --secondary: #1e293b;
+  --secondary-foreground: #f8fafc;
+  --muted: rgba(255, 255, 255, 0.05);
+  --muted-foreground: rgba(255, 255, 255, 0.55);
+  --accent: rgba(255, 255, 255, 0.08);
+  --accent-foreground: #f8fafc;
+  --destructive: #f87171;
+  --border: rgba(255, 255, 255, 0.12);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: #38bdf8;
+  --sidebar: #0b3a60;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #38bdf8;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(255, 255, 255, 0.12);
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(255, 255, 255, 0.15);
+  --sidebar-ring: #38bdf8;
+}
+
+/* --- Base Layer --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  border-color: var(--border);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+a, button, [role="button"], select,
+input[type="button"], input[type="submit"] {
+  cursor: pointer;
+}
+
+/* --- Radius Scale --- */
+:root {
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+}
+
+/* --- Scroll Fade Utilities --- */
+.scroll-fade {
+  --scroll-fade-size: min(12%, 40px);
+  --scroll-fade-reveal: 96px;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black var(--scroll-fade-reveal) calc(100% - var(--scroll-fade-reveal)),
+    transparent
+  );
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- Shimmer Animation --- */
+@keyframes erp-shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.04) 25%,
+    rgba(0, 0, 0, 0.08) 50%,
+    rgba(0, 0, 0, 0.04) 75%
+  );
+  background-size: 200% 100%;
+  animation: erp-shimmer 1.5s infinite;
+}
+
+/* --- Typeset --- */
+.typeset {
+  --typeset-font-body: inherit;
+  --typeset-font-heading: inherit;
+  --typeset-font-mono: var(--font-mono, monospace);
+  --typeset-size: 1em;
+  --typeset-leading: 1.75;
+  --typeset-flow: 1.25em;
+  font-size: var(--typeset-size);
+  line-height: var(--typeset-leading);
+  font-family: var(--typeset-font-body);
+}
+.typeset :where(h1, h2, h3, h4, h5, h6) {
+  font-weight: 600;
+  margin-block-start: calc(var(--typeset-flow) * 1.5);
+  margin-block-end: calc(var(--typeset-flow) * 0.5);
+  line-height: 1.25;
+}
+.typeset :where(h1) { font-size: 2.25em; }
+.typeset :where(h2) { font-size: 1.75em; }
+.typeset :where(h3) { font-size: 1.375em; }
+.typeset :where(h4) { font-size: 1.125em; }
+.typeset :where(p) { color: var(--foreground); opacity: 0.9; }
+.typeset :where(a) { color: var(--primary); text-decoration: underline; text-underline-offset: 4px; }
+.typeset :where(blockquote) {
+  border-inline-start: 4px solid var(--border);
+  padding-inline-start: 1em;
+  font-style: italic;
+}
+
+/* --- A4 Print Utilities --- */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0 !important;
+  }
+  html, body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+  aside, header, footer, nav, [data-sidebar], .no-print, .no-print * {
+    display: none !important;
+    visibility: hidden !important;
+  }
+  body * { visibility: hidden !important; }
+  .printable-a4-paper,
+  .printable-a4-paper *,
+  [id*="canvas"], [id*="canvas"] *,
+  [id*="printable"], [id*="printable"] * {
+    visibility: visible !important;
+  }
+  .printable-a4-paper,
+  [id*="canvas"],
+  [id*="printable"] {
+    position: fixed !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 296mm !important;
+    box-sizing: border-box !important;
+    margin: 0 auto !important;
+    padding: 6mm 8mm !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    color: #111827 !important;
+    z-index: 9999999 !important;
+  }
+}
+

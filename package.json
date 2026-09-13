@@ -1,0 +1,80 @@
+{
+  "name": "@plexivia/dashboard-theme",
+  "version": "0.0.1",
+  "description": "Plexivia Dashboard UI - reusable React components, layout, theming, and state management for admin/client dashboards",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./styles": "./styles/index.css",
+    "./styles/index.css": "./styles/index.css"
+  },
+  "files": [
+    "dist",
+    "styles",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "build:watch": "tsup --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "react",
+    "dashboard",
+    "ui",
+    "components",
+    "tailwind",
+    "zustand",
+    "erp",
+    "plexivia",
+    "sidebar",
+    "layout"
+  ],
+  "author": "Plexivia Dev",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Plexivia-dev/Dashboard-Theme.git"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0",
+    "tailwindcss": ">=4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "tailwindcss": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@base-ui/react": "^1.7.0",
+    "@remixicon/react": "^4.9.0",
+    "@tanstack/react-query": "^5.101.4",
+    "@tanstack/react-table": "^9.1.2",
+    "axios": "^1.19.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "html-to-image": "^1.11.13",
+    "lucide-react": "^1.33.0",
+    "motion": "^13.1.0",
+    "react-router-dom": "^7.18.2",
+    "recharts": "^3.10.1",
+    "socket.io-client": "^4.8.3",
+    "sonner": "^2.0.8",
+    "tailwind-merge": "^3.6.0",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.0",
+    "tsup": "^8.5.0",
+    "typescript": "^7.0.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
